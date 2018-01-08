@@ -1,0 +1,838 @@
+@import '_layout/_normalize';
+@import '_fonts';
+@import '_variables';
+@import '_layout/_layout';
+@import 'slick';
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+body {
+    font: 700 19px/1.47 $font-primary;
+    color: $color-light;
+}
+
+
+
+
+/* Layout */
+
+.ba-container {
+    padding-left: 30px;
+    padding-right: 30px;
+    max-width: 1230px; // 1170 + 60
+}
+
+
+/* Typography */
+
+a,
+input[type="submit"],
+input[type="button"],
+button {
+    transition: color .3s ease-in, border-color .3s ease-in, background-color .3s ease-in, opacity .3s ease-in;
+}
+
+input[type="submit"],
+input[type="button"],
+button,
+.ba-button {
+    display: inline-block;
+    background: $color-dark-secondary;
+    color:  $color-light;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 0;
+    &--proposition{
+    	background: transparent;
+    	color: $color-dark-primary;
+    } 
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover,
+button:hover,
+.ba-button:hover {}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+textarea,
+select {
+    transition: color .3s ease-in, border-color .3s ease-in, background-color .3s ease-in, opacity .3s ease-in;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+textarea:focus,
+select:focus {}
+
+textarea {}
+
+
+/* HEADER section */
+
+.ba-header{
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	z-index: 10;
+	background: $color-light; 
+}
+
+.ba-logo{
+	padding-top: 23px;
+	display: inline-block;
+	text-decoration: none;
+	position: relative;
+	svg {
+		display: block;
+	}
+	&__image{
+		fill: $color-orange;
+		width: 190px;
+		height: 30px;
+		
+	}
+	&__copyright{
+		fill: $color-dark-primary;
+		width: 8.844px;
+		height: 8.688px;
+		position: absolute;
+		top: 23px;
+		right: -15px;
+	}
+}
+
+.ba-menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    
+    display: flex;
+    
+	li{
+		display: flex;
+	}
+	a {
+		min-width: 130px;
+		padding: 15px 0;
+		text-decoration: none;
+		color: $color-dark-primary; 
+		font-size: 13px;
+		text-transform: uppercase;
+		position: relative;
+		
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between; 
+		align-items: center;
+		
+		transition: color, background, border-color .3s ease-in;
+		
+		&::after{
+			position: absolute;
+			content: "";
+			left: 50%;
+			transform: translate(-50%, 200%);
+			width: 0;
+			height: 0;
+			border-left: 20px solid transparent;
+			border-right: 20px solid transparent;
+			border-top: 20px solid transparent;
+			transition: border-color .3s ease-in;  
+		}
+		
+		&.active, &:hover{
+			background: $color-orange;
+			color: $color-light;
+			&::after{
+				border-top: 20px solid $color-orange;
+			}
+		}
+	}	
+}
+
+
+/* BANNER secrion */
+.ba-banner {
+	background: url('../img/bg/bg.jpg') center/cover no-repeat;
+	&__main{
+		min-height: 100vh;
+		max-width: 630px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	&__suptitle, &__title {
+		text-transform: uppercase;
+	}
+	&__suptitle, &__title, &__subtitle {
+		margin: 0;
+		text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.75);
+	}
+	&__suptitle {
+		font-size: 38px;
+		font-weight: 400;
+		line-height: 1;
+	}
+	&__title {
+		font-size: 100px;
+		font-weight: 800;
+		line-height: 0.9;
+	}
+	&__subtitle {
+		font-size: 17px;
+		font-weight: 400;
+		line-height: 1.64;
+		letter-spacing: -0.04em;
+	}
+}
+
+/* CITIES section */
+.ba-cities{
+	background: url('../img/bg/map.jpg') center top no-repeat;
+	//padding-top: 100px;
+	&__main{
+		padding: 120px 0 110px;
+	}
+
+	&__heading{
+		text-transform: uppercase;
+	}
+
+	&__title{
+		color: $color-orange;
+		font-size: 80px; 
+		font-weight: 800;
+		line-height: 1;	
+	}
+	&__subtitle{
+		color: $color-dark-primary;
+		font-size: 34px; 
+		font-weight: 400;
+		margin: 0;
+	}
+	&__subtext{
+		color: $color-dark-primary;
+		font-weight: 400;
+		margin: 0;
+	}
+
+	&__propositions{
+		padding-top: 115px;
+		overflow: hidden;
+	}
+}
+
+.ba-proposition{
+
+	float: left;
+	display: block;
+	cursor: wait;
+	position: relative;
+	transition: opacity .4s ease-in;
+	&:hover{
+		& .ba-proposition__amount{
+			opacity: 0;
+		}
+		& .ba-proposition__information{
+			//opacity: 1;
+			transform: translateY(0%);
+		}
+	}
+	
+	img{
+		display: block;
+	}
+
+	&__button{
+		margin-top: 30px;
+		height: 40px;
+		line-height: 40px;
+		padding: 0 25px;
+		position: relative;
+		transition: color .3s ease-in;
+		&::before{
+			position: absolute;
+			content: "►";
+			color: $color-orange;
+			left: 10px;
+			top: 1px;
+			font-size: 10px; 
+		}
+		&:hover{
+			color: $color-orange;
+		}
+	}
+	
+	&__amount{
+		opacity: 1;
+		transition: opacity .4s ease-in;
+		
+		position: absolute;
+		top: 10px;
+		left: 10px;
+	}
+	&__information{
+
+		//opacity: 0;
+		//transition: opacity .4s ease-in;
+		
+		transform: translateY(101%);
+  		transition: 0.5s ease-in;
+		
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		
+		height: 70%;
+		padding: 50px 0 40px 28px;
+		
+		display: flex;
+		flex-direction: column;
+		
+		background: $color-opacity; 
+		
+		&::after{
+			position: absolute;
+			content: "";
+			top: -10px;
+			left: 15%;
+			
+			width: 0;
+			height: 0;
+			border-left: 10px solid transparent;
+			border-right: 10px solid transparent;
+			border-bottom: 10px solid $color-opacity;
+			transition: border-color .3s ease-in;  
+		}
+	}
+
+	&__start, &__price, &__title, &__description {
+		margin: 0;
+		text-transform: uppercase;
+	}
+	&__start{
+		font-size: 16px;
+		font-weight: 400;
+	}
+	&__price{
+		font-size: 42px;
+		font-weight: 800;
+		line-height: 1;
+		padding-left: 30px;
+		position: relative;
+		&::before{
+			position: absolute;
+			content: "€";
+			left: 0;
+			top: 10px;
+			font-size: 30px;
+			font-weight: 800;
+			color: $color-orange; 
+			line-height: 1;
+		}
+	}
+	&__title{
+		color: $color-orange;
+		font-size: 23px; 
+		font-weight: 400;
+	}
+	&__description{
+		color: $color-dark-primary;
+		font-size: 34px;
+		max-width: 80%;
+		padding-bottom: 10px; 
+		line-height: 1;
+		
+		flex-grow: 1;
+	}
+}
+
+.ba-link {
+	display: inline-block;
+	vertical-align: middle;
+	color: $color-dark-primary;
+	font-size: 14px;
+	text-decoration: none;
+	text-transform: uppercase;
+	position: relative;
+	padding-left: 12px;
+	cursor: pointer;
+	transition: color .3s ease-in;
+	&::before{
+		position: absolute;
+		content: "►";
+		color: $color-orange;
+		left: 0;
+		top: 4px;
+		font-size: 10px; 
+	}
+	&:hover{
+		color: $color-orange;
+		cursor: pointer;
+	}
+}
+
+
+/* BEST-OFFERS section */
+.ba-best-offers{
+	position: relative;
+	&__title{
+		font-family: $font-slider;
+		font-size: 30px;
+		font-weight: 400;
+		//line-height: 90px; 
+		transform: scaleX(1.0005);
+		text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.75);
+		
+		position: absolute;
+		top: 110px;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 9;
+	}
+}
+
+.ba-slider-best-offers{
+	position: relative;
+}
+
+.ba-slide{
+	&--africa{
+		background: url('../img/bg/bg-offers-kenya.jpg') center/cover no-repeat; 
+	}
+	&--italy{
+		background: url('../img/bg/bg-offers-italy.jpg') center/cover no-repeat; 
+	}
+	&--usa{
+		background: url('../img/bg/bg.jpg') center/cover no-repeat; 	
+	}
+	&__information{
+		padding-top: 208px;
+		max-width: 875px;
+		margin: 0 auto; 
+	}
+	&__suptitle{
+		text-transform: uppercase;
+		font-size: 38px;
+		font-weight: 400;
+	}
+	&__title{
+		text-transform: uppercase;
+		line-height: 1;
+		font-size: 100px;
+		font-weight: 800;
+		transform: scaleX(1.0008);
+		text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.75);
+	}
+	&__subtitle{
+		transform: scaleX(1.0008);
+		text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.75);
+	}
+
+	&-col{
+		&-left{
+			height: 100%;
+			background: $color-dark-primary;
+			padding: 116px 49px 29px 21px;
+		}
+		&-right{
+			height: 100%;
+			background: $color-opacity;
+			padding: 40px 175px 40px 31px;
+			
+			position: relative;
+			
+			img{
+				position: absolute;
+				right: -115px;
+				top: -40px;
+				z-index: 2;
+			}	
+		}
+	}
+	&__button{
+		position: absolute;
+		right: 55px;
+		bottom: -19px;
+		z-index: 3;
+		border: none; 
+		margin-top: 0;
+		padding: 0 30px; 
+	}
+}
+
+.ba-pricing{
+	padding-top: 109px;
+	padding-bottom: 220px;
+	max-width: 800px;
+	margin: 0 auto;
+	&__start{
+		font-size: 16px;
+		font-weight: 400;
+		text-transform: uppercase;
+		margin: 0;
+	}
+	&__price{
+		color: $color-orange;
+		font-size: 60px;
+		font-weight: 800;
+		line-height: 1;
+		margin: 0;
+		padding-left: 30px;
+		position: relative;
+		&::before{
+			position: absolute;
+			content: "€";
+			left: 0;
+			bottom: 5px;
+			font-size: 30px;
+			font-weight: 800;
+			color: $color-light; 
+			line-height: 1;
+		}
+	}
+	&__title{
+		color: $color-orange;
+		font-size: 30px;
+		font-weight: 400;
+		margin: 0;
+		padding-bottom: 15px;
+		
+	}
+	&__description{
+		font-size: 16px;
+		font-weight: 400;
+		color: $color-dark-primary;
+		margin: 0;
+		padding-bottom: 15px;
+	}
+}
+
+.ba-arrow{
+	background: $color-dark-primary;
+	color: $color-light; 
+	padding: 15px 20px;
+	position: absolute;
+	bottom: 50px;
+	border: 0;
+	
+	&--left{
+		right: 192px;
+	}
+	&--right{
+		right: 145px;
+	}
+	svg{
+		width: 7px;
+		height: 7px;
+		fill: currentColor;
+	}
+	&:hover{
+		background-color: $color-orange; 
+	}
+}
+
+
+/* HOT OFFERS section */
+
+.ba-hot-offers{
+	&__info{
+		background: url('../img/bg/find-out.jpg') center/cover no-repeat; 
+		padding: 100px 0;
+	}
+	&__title{
+		color: $color-orange;
+		font-size: 80px;
+		font-weight: 800;
+		line-height: 1; 
+		text-transform: uppercase;
+	}
+	&__description{
+		color: $color-dark-primary;
+		font-size: 34px; 
+		font-weight: 400;
+		line-height: 1px;
+		text-transform: uppercase;
+	}
+
+	&__content{
+		background: url('../img/bg/taiwan.jpg') center/cover no-repeat; 
+		padding: 50px 0 0;
+	}
+
+	&__today{
+		background: $color-orange;
+		padding: 30px;
+		max-width: 270px;
+		margin-bottom: 80px;
+		position: relative;
+	}
+	
+	&__card{
+		margin-right: 20px;
+		max-width: 650px;
+		float: right;
+		display: flex;
+	}
+
+	&__menu{
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		li{
+			display: inline-block;
+		}
+		a{
+			color:  $color-light;
+			font-size: 14px;/* Approximation due to font substitution */
+			font-weight: 700;
+			text-transform: uppercase;
+			text-decoration: none;
+			min-width: 130px;
+			padding: 15px;
+			transition: color, background, border-color .3s ease-in;
+			display: flex;
+			justify-content: center;
+			align-self: center; 
+		
+			&.active, &:hover{
+				background: $color-orange;
+				color: $color-light;
+				&::after{
+					border-top: 20px solid $color-orange;
+				}
+			}
+		}
+	}
+}
+
+.ba-today{
+	&__title{
+		font-size: 38px; 
+		font-weight: 700;
+		line-height: 1.05;
+		margin: 0;
+		text-transform: uppercase;
+		padding-bottom: 70px;
+
+	}
+	&__suptitle{
+		font-size: 16px; 
+		font-weight: 700;
+		margin: 0;
+		text-transform: uppercase;
+		line-height: 1.3;
+	}
+	&__price{
+		font-size: 23px;
+		font-weight: 700;
+		margin: 0;
+		line-height: .9; 
+	}
+	&__subtitle{
+		font-size: 12px; 
+		font-weight: 400;
+		text-transform: uppercase;
+		margin: 0;
+		line-height: 1.58;
+	}
+	&__svg{
+		fill: white;
+		position: absolute;
+		left: 0;
+		bottom: -150px;
+	}
+}
+
+.ba-slide{
+	&-second{
+		&__information{
+	
+			background: $color-opacity;
+			padding: 40px 50px 40px 40px;
+			display: inline-block;
+		}
+		&__pricing{
+			background: $color-dark-primary;
+			padding: 60px 49px 29px 21px;
+			display: inline-block;
+			img{
+				display: block;
+				padding-bottom: 50px;
+			}
+		}
+		&__title{
+			color: $color-orange;
+			text-transform: uppercase;
+			font-size: 30px;
+			font-weight: 400;
+			margin: 0;
+			padding-bottom: 15px;
+			line-height: 1;
+		
+		}
+		&__description{
+			font-size: 16px;
+			font-weight: 400;
+			color: $color-dark-primary;
+			margin: 0;
+			padding-bottom: 15px;
+		}
+
+	}
+}
+
+.ba-slider{
+	&-second{
+		&__controls{
+			background: $color-dark-third; 
+			margin-top: 100px;
+			
+		}
+	}
+}
+
+.ba-link{
+	&--slider{
+		margin-right: 60px;	
+	}
+}
+.ba-arrow{
+	&--slider{
+		position: static;
+	}
+}
+
+
+.ba-map{
+	min-height: 600px;
+}
+
+.ba-footer{
+	padding: 75px 0 43px;
+	background: $color-orange; 
+	p{
+		font-size: 10px;
+		font-weight: 400;
+	}
+	&__contact{
+		margin-bottom: 0;
+		text-transform: uppercase;
+	}
+	&__address{
+		margin-top: 0;
+		text-transform: uppercase;
+	}
+
+	&-logo{
+		position: relative;
+		left: -5px;
+
+		svg{
+			display: inline-block;
+		}
+
+		&__image{
+			fill: $color-light;
+			width: 144px;
+			height: 24px;
+			position: relative;
+			right: 7px;
+			
+		}
+		&__copyright{
+			fill: $color-dark-primary;
+			width: 8.844px;
+			height: 8.688px;
+			position: absolute;
+			top: -7px;
+			right: -6px;
+		}
+	}
+}
+
+.ba-pin{
+	display: block;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	background: $color-dark-primary;
+	text-decoration: none;
+	text-align: center;
+	color: $color-light;
+	transition: background, fill, color .3s ease-in;
+		
+	position: relative;
+	
+	&:hover{
+		background: currentColor;
+		transition: background, fill, color .3s ease-in;
+		
+		svg{
+			fill: $color-dark-primary;
+		}
+
+		& + svg {
+			fill: $color-dark-primary;
+		}
+	}
+		
+	&-menu{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		
+		li{
+			display: inline-block;
+			margin-right: 10px;
+			margin-bottom: 20px;
+		}
+
+		svg {
+			fill: $color-light;
+		}
+	}
+	
+	&--facebook{
+		width: 9px;
+		height: 16px;
+	}	
+	&--pintest{
+		width: 14px;
+		height: 17px;
+		
+	}
+	&--twitter{
+		width: 10px;
+		height: 13px;
+	}
+	&--decoration{
+		width: 45px;
+		height: 7px;
+		
+		position: absolute;
+		
+	}
+}
+
+
+
+
+

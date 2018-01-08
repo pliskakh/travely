@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="19" viewBox="0 0 16 19">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #66686c;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="Icon_hotels.svg" class="cls-1" d="M1485.2,27.965h2.8V22.337h-15.99v5.276A6.6,6.6,0,0,0,1485.2,27.965Zm0.02-4.925h2.09v4.221h-2.09V23.04Zm-6.61,10.552a5.951,5.951,0,0,1-5.91-5.98V23.04h11.82v4.573A5.951,5.951,0,0,1,1478.61,33.592ZM1472.01,35h13.21V34.3h-13.21V35Zm4.17-17.938h-0.7v3.166h0.7V17.061Zm5.56,0h-0.69v3.166h0.69V17.061Zm-2.78-1.056h-0.7v4.222h0.7V16.005Z" transform="translate(-1472 -16)"/>
+</svg>
