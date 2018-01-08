@@ -71,9 +71,11 @@ $('a[href*="#"]')
 			autoplay: true,
 			autoplaySpeed: 4000,
 			fade: true,
-			arrows: false,
+			arrows: true,
+			prevArrow: '.ba-control--left',
+			nextArrow: '.ba-control--right',
 			cssEase: 'linear',
-			slide: '.ba-hot-offers__slide',
+			slide: '.ba-hot-offers__slide'
 		});
 
 		function initMap() {

@@ -824,7 +824,7 @@ select {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  transition: color, background, border-color .3s ease-in;
+  transition: transform, color, background, border-color .3s ease-in;
 }
 
 .ba-menu a::after {
@@ -837,7 +837,7 @@ select {
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
   border-top: 20px solid transparent;
-  transition: border-color .3s ease-in;
+  transition: transform, border-color .3s ease-in;
 }
 
 .ba-menu a.active, .ba-menu a:hover {
@@ -1400,7 +1400,7 @@ select {
 }
 
 .ba-link--slider {
-  margin-right: 60px;
+  margin-right: 130px;
 }
 
 .ba-arrow--slider {
@@ -1518,4 +1518,35 @@ select {
   width: 45px;
   height: 7px;
   position: absolute;
+}
+
+.ba-slide-second__arr {
+  position: relative;
+}
+
+.ba-control {
+  background: #3f3e41;
+  color: #ffffff;
+  padding: 15px 20px;
+  position: absolute;
+  bottom: -23px;
+  border: 0;
+}
+
+.ba-control--left {
+  right: 60px;
+}
+
+.ba-control--right {
+  right: 13px;
+}
+
+.ba-control svg {
+  width: 7px;
+  height: 7px;
+  fill: currentColor;
+}
+
+.ba-control:hover {
+  background-color: #fd5c08;
 }

@@ -141,7 +141,7 @@ textarea {}
 		justify-content: space-between; 
 		align-items: center;
 		
-		transition: color, background, border-color .3s ease-in;
+		transition: transform, color, background, border-color .3s ease-in;
 		
 		&::after{
 			position: absolute;
@@ -153,7 +153,7 @@ textarea {}
 			border-left: 20px solid transparent;
 			border-right: 20px solid transparent;
 			border-top: 20px solid transparent;
-			transition: border-color .3s ease-in;  
+			transition: transform, border-color .3s ease-in;  
 		}
 		
 		&.active, &:hover{
@@ -711,7 +711,7 @@ textarea {}
 
 .ba-link{
 	&--slider{
-		margin-right: 60px;	
+		margin-right: 130px;	
 	}
 }
 .ba-arrow{
@@ -829,6 +829,34 @@ textarea {}
 		
 		position: absolute;
 		
+	}
+}
+
+.ba-slide-second__arr{
+	position: relative;
+}
+
+.ba-control{
+	background: $color-dark-primary;
+	color: $color-light; 
+	padding: 15px 20px;
+	position: absolute;
+	bottom: -23px;
+	border: 0;
+	
+	&--left{
+		right: 60px;
+	}
+	&--right{
+		right: 13px;
+	}
+	svg{
+		width: 7px;
+		height: 7px;
+		fill: currentColor;
+	}
+	&:hover{
+		background-color: $color-orange; 
 	}
 }
 
