@@ -834,6 +834,7 @@ textarea {}
 
 .ba-slide-second__arr{
 	position: relative;
+	padding-top: 10px; 
 }
 
 .ba-control{
@@ -841,7 +842,7 @@ textarea {}
 	color: $color-light; 
 	padding: 15px 20px;
 	position: absolute;
-	bottom: -23px;
+	bottom: -13px;
 	border: 0;
 	
 	&--left{

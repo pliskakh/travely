@@ -41,7 +41,7 @@ $('a[href*="#"]')
         var posDoc = $(this).scrollTop();
 
         $('.ba-section').each(function (index, item) {
-            var topHeader = $(this).offset().top - 10;
+            var topHeader = $(this).offset().top;
             var botHeader = topHeader + $(this).height();
 
             if (
